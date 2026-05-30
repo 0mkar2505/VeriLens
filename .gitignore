@@ -1,0 +1,16 @@
+# Datasets
+Dataset/
+Raw/
+
+# Models
+*.pth
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environments
+venv/
+.env
