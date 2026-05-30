@@ -7,15 +7,14 @@ import shutil
 # ==================================================
 
 # Source folders containing ALL images
-SOURCE_REAL = r"PATH_TO_REAL_IMAGES"
-SOURCE_DEEPFAKE = r"PATH_TO_DEEPFAKE_IMAGES"
 SOURCE_AI = r"PATH_TO_AI_GENERATED_IMAGES"
+SOURCE_REAL = r"PATH_TO_REAL_IMAGES"
 
 # Output root folder
-OUTPUT_ROOT = r"PATH_TO_DATASET_OUTPUT"
+OUTPUT_ROOT = r"F:\VeriLens\Dataset"
 
 # Number of images to use from each class
-TARGET_IMAGES_PER_CLASS = 2000
+TARGET_IMAGES_PER_CLASS = 5000
 
 # Split ratios
 TRAIN_RATIO = 0.8
@@ -24,6 +23,11 @@ TEST_RATIO = 0.1
 
 # Supported image formats
 IMAGE_EXTENSIONS = (".jpg", ".jpeg", ".png")
+
+CLASSES = {
+    "AI": SOURCE_AI,
+    "Real": SOURCE_REAL
+}
 
 
 # ==================================================
@@ -73,23 +77,9 @@ def split_and_copy(source_dir, class_name):
 
     # Create output folders
 
-    train_dir = os.path.join(
-        OUTPUT_ROOT,
-        "Train",
-        f"{class_name}_Tr"
-    )
-
-    validation_dir = os.path.join(
-        OUTPUT_ROOT,
-        "Validation",
-        f"{class_name}_V"
-    )
-
-    test_dir = os.path.join(
-        OUTPUT_ROOT,
-        "Test",
-        f"{class_name}_Te"
-    )
+    train_dir = os.path.join(OUTPUT_ROOT, "Train", class_name)
+    validation_dir = os.path.join(OUTPUT_ROOT, "Validation", class_name)
+    test_dir = os.path.join(OUTPUT_ROOT, "Test", class_name)
 
     create_directory(train_dir)
     create_directory(validation_dir)
@@ -130,19 +120,7 @@ def split_and_copy(source_dir, class_name):
 # EXECUTION
 # ==================================================
 
-split_and_copy(
-    SOURCE_REAL,
-    "Real"
-)
-
-split_and_copy(
-    SOURCE_DEEPFAKE,
-    "Deepfake"
-)
-
-split_and_copy(
-    SOURCE_AI,
-    "AI"
-)
+for class_name, source_dir in CLASSES.items():
+    split_and_copy(source_dir, class_name)
 
 print("\nDataset preparation completed successfully.")
