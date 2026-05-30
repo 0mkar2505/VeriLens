@@ -7,14 +7,14 @@ import shutil
 # ==================================================
 
 # Source folders containing ALL images
-SOURCE_AI = r"PATH_TO_AI_GENERATED_IMAGES"
-SOURCE_REAL = r"PATH_TO_REAL_IMAGES"
+SOURCE_AI = r"F:\VeriLens\Dataset\Bulk\Super_GenAI_Dataset\Fake"
+SOURCE_REAL = r"F:\VeriLens\Dataset\Bulk\Super_GenAI_Dataset\Real"
 
 # Output root folder
 OUTPUT_ROOT = r"F:\VeriLens\Dataset"
 
 # Number of images to use from each class
-TARGET_IMAGES_PER_CLASS = 5000
+TARGET_IMAGES_PER_CLASS = 4752
 
 # Split ratios
 TRAIN_RATIO = 0.8

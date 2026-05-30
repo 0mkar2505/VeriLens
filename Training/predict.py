@@ -10,7 +10,7 @@ from torchvision import transforms, models
 # CONFIG
 # ==========================================
 
-IMAGE_PATH = r"C:\Users\Admin\Pictures\Screenshots\Screenshot 2026-05-30 195810.png"
+IMAGE_PATH = r"C:\Users\Admin\Pictures\Screenshots\Mi Casa.png"
 
 MODEL_PATH = r"F:\VeriLens\Backend\model\verilens_model.pth"
 CLASS_PATH = r"F:\VeriLens\Backend\model\class_names.json"
