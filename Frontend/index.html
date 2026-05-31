@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriLens</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">AI Content Verification Platform</p>
+                <h1>VeriLens</h1>
+            </div>
+            <div class="status-pill" id="apiStatus">Checking API</div>
+        </header>
+
+        <section class="workspace">
+            <aside class="mode-panel" aria-label="Analysis type">
+                <button class="mode-button active" type="button" data-mode="image">
+                    <span class="mode-icon">IMG</span>
+                    <span>
+                        <strong>Image Verification</strong>
+                        <small>AI Generated or Human Created</small>
+                    </span>
+                </button>
+                <button class="mode-button" type="button" data-mode="text">
+                    <span class="mode-icon">TXT</span>
+                    <span>
+                        <strong>Text Verification</strong>
+                        <small>AI and human probability</small>
+                    </span>
+                </button>
+            </aside>
+
+            <section class="tool-surface">
+                <section class="tool-view active" id="imageView">
+                    <div class="tool-header">
+                        <h2>Image Verification</h2>
+                        <p>Upload an image and VeriLens will classify it with the trained EfficientNet detector.</p>
+                    </div>
+
+                    <div class="image-grid">
+                        <label class="upload-zone" for="imageInput">
+                            <input id="imageInput" type="file" accept="image/*">
+                            <span class="upload-mark">+</span>
+                            <strong>Choose image</strong>
+                            <small id="imageFileName">PNG, JPG, or JPEG</small>
+                        </label>
+
+                        <div class="preview-panel">
+                            <img id="imagePreview" alt="Selected preview">
+                            <div class="preview-empty" id="previewEmpty">Preview</div>
+                        </div>
+                    </div>
+
+                    <div class="action-row">
+                        <button class="primary-button" type="button" id="imageAnalyzeButton" disabled>
+                            Analyze Image
+                        </button>
+                        <button class="ghost-button" type="button" id="clearImageButton">
+                            Clear
+                        </button>
+                    </div>
+
+                    <section class="result-panel hidden" id="imageResult" aria-live="polite"></section>
+                </section>
+
+                <section class="tool-view" id="textView">
+                    <div class="tool-header">
+                        <h2>Text Verification</h2>
+                        <p>Paste writing for a first-pass stylometric estimate.</p>
+                    </div>
+
+                    <textarea id="textInput" rows="12" placeholder="Paste essay, report, article, assignment, or answer text here"></textarea>
+
+                    <div class="action-row">
+                        <button class="primary-button" type="button" id="textAnalyzeButton">
+                            Analyze Text
+                        </button>
+                        <button class="ghost-button" type="button" id="clearTextButton">
+                            Clear
+                        </button>
+                    </div>
+
+                    <section class="result-panel hidden" id="textResult" aria-live="polite"></section>
+                </section>
+            </section>
+        </section>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+</html>
