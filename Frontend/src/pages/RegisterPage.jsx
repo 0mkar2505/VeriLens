@@ -1,0 +1,65 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import ErrorMessage from "../components/ErrorMessage.jsx";
+import useAuth from "../hooks/useAuth.js";
+
+export default function RegisterPage() {
+  const { register } = useAuth();
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      await register(form);
+      navigate("/dashboard", { replace: true });
+    } catch (err) {
+      setError(err.response?.data?.detail || "Unable to create account.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  return (
+    <section className="auth-card">
+      <h1>Create account</h1>
+      <p>Start building a private verification history.</p>
+      <ErrorMessage message={error} />
+      <form className="form-stack" onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input
+            autoComplete="email"
+            required
+            type="email"
+            value={form.email}
+            onChange={(event) => setForm({ ...form, email: event.target.value })}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            autoComplete="new-password"
+            minLength={8}
+            required
+            type="password"
+            value={form.password}
+            onChange={(event) => setForm({ ...form, password: event.target.value })}
+          />
+        </label>
+        <button className="button" disabled={isSubmitting} type="submit">
+          {isSubmitting ? "Creating Account" : "Create Account"}
+        </button>
+      </form>
+      <p className="form-link">
+        Already registered? <Link to="/login">Sign in</Link>
+      </p>
+    </section>
+  );
+}
