@@ -5,25 +5,22 @@ import ErrorMessage from "../components/ErrorMessage.jsx";
 import useAuth from "../hooks/useAuth.js";
 
 export default function LoginPage() {
-  const { login } = useAuth();
+  const { authError, isAuthLoading, login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const routeError = location.state?.authError || "";
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
     setError("");
-    setIsSubmitting(true);
 
     try {
       await login(form);
       navigate(location.state?.from?.pathname || "/dashboard", { replace: true });
     } catch (err) {
       setError(err.response?.data?.detail || "Unable to sign in.");
-    } finally {
-      setIsSubmitting(false);
     }
   }
 
@@ -31,7 +28,7 @@ export default function LoginPage() {
     <section className="auth-card">
       <h1>Welcome back</h1>
       <p>Sign in to continue verification work.</p>
-      <ErrorMessage message={error} />
+      <ErrorMessage message={error || routeError || authError} />
       <form className="form-stack" onSubmit={handleSubmit}>
         <label>
           Email
@@ -53,8 +50,8 @@ export default function LoginPage() {
             onChange={(event) => setForm({ ...form, password: event.target.value })}
           />
         </label>
-        <button className="button" disabled={isSubmitting} type="submit">
-          {isSubmitting ? "Signing In" : "Sign In"}
+        <button className="button" disabled={isAuthLoading} type="submit">
+          {isAuthLoading ? "Signing In" : "Sign In"}
         </button>
       </form>
       <p className="form-link">

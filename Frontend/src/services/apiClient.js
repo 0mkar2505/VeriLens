@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import { emitAuthLogout } from "../utils/authEvents.js";
 import { getStoredToken, removeStoredToken } from "../utils/tokenStorage.js";
 
 const apiClient = axios.create({
@@ -11,6 +12,7 @@ apiClient.interceptors.request.use((config) => {
   const token = getStoredToken();
 
   if (token) {
+    config.headers = config.headers || {};
     config.headers.Authorization = `Bearer ${token}`;
   }
 
@@ -22,6 +24,7 @@ apiClient.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       removeStoredToken();
+      emitAuthLogout();
     }
 
     return Promise.reject(error);

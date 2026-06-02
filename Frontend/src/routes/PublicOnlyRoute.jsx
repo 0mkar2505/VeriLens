@@ -6,7 +6,11 @@ export default function PublicOnlyRoute() {
   const { isAuthenticated, isBootstrapping } = useAuth();
 
   if (isBootstrapping) {
-    return <div className="full-page-loader">Loading VeriLens</div>;
+    return (
+      <div className="full-page-loader">
+        <span>Loading VeriLens</span>
+      </div>
+    );
   }
 
   if (isAuthenticated) {

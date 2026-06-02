@@ -5,24 +5,20 @@ import ErrorMessage from "../components/ErrorMessage.jsx";
 import useAuth from "../hooks/useAuth.js";
 
 export default function RegisterPage() {
-  const { register } = useAuth();
+  const { authError, isAuthLoading, register } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
     setError("");
-    setIsSubmitting(true);
 
     try {
       await register(form);
       navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(err.response?.data?.detail || "Unable to create account.");
-    } finally {
-      setIsSubmitting(false);
     }
   }
 
@@ -30,7 +26,7 @@ export default function RegisterPage() {
     <section className="auth-card">
       <h1>Create account</h1>
       <p>Start building a private verification history.</p>
-      <ErrorMessage message={error} />
+      <ErrorMessage message={error || authError} />
       <form className="form-stack" onSubmit={handleSubmit}>
         <label>
           Email
@@ -53,8 +49,8 @@ export default function RegisterPage() {
             onChange={(event) => setForm({ ...form, password: event.target.value })}
           />
         </label>
-        <button className="button" disabled={isSubmitting} type="submit">
-          {isSubmitting ? "Creating Account" : "Create Account"}
+        <button className="button" disabled={isAuthLoading} type="submit">
+          {isAuthLoading ? "Creating Account" : "Create Account"}
         </button>
       </form>
       <p className="form-link">
