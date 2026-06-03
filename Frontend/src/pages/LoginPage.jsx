@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import ErrorMessage from "../components/ErrorMessage.jsx";
@@ -11,6 +11,12 @@ export default function LoginPage() {
   const routeError = location.state?.authError || "";
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (error && (form.email || form.password)) {
+      setError("");
+    }
+  }, [form.email, form.password, error]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,7 +31,7 @@ export default function LoginPage() {
   }
 
   return (
-    <section className="auth-card">
+    <section className="auth-card fade-in reveal-delay-1">
       <h1>Welcome back</h1>
       <p>Sign in to continue verification work.</p>
       <ErrorMessage message={error || routeError || authError} />

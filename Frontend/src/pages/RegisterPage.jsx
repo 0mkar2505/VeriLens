@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import ErrorMessage from "../components/ErrorMessage.jsx";
@@ -9,6 +9,12 @@ export default function RegisterPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (error && (form.email || form.password)) {
+      setError("");
+    }
+  }, [form.email, form.password, error]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -23,7 +29,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <section className="auth-card">
+    <section className="auth-card fade-in reveal-delay-1">
       <h1>Create account</h1>
       <p>Start building a private verification history.</p>
       <ErrorMessage message={error || authError} />
