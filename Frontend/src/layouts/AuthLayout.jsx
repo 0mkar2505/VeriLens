@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import PublicNav from "../components/PublicNav.jsx";
 
 export default function AuthLayout() {
   return (
@@ -7,12 +8,7 @@ export default function AuthLayout() {
         <Link className="brand" to="/">
           VeriLens
         </Link>
-        <nav className="auth-nav" aria-label="Authentication">
-          <Link to="/login">Login</Link>
-          <Link className="button button-compact" to="/register">
-            Register
-          </Link>
-        </nav>
+        <PublicNav />
       </header>
       <Outlet />
     </main>

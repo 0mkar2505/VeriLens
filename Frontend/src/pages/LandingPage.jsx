@@ -1,25 +1,45 @@
 import { Link } from "react-router-dom";
+import LandingHero from "../components/LandingHero.jsx";
 
 export default function LandingPage() {
   return (
-    <section className="landing">
-      <div className="landing-copy fade-in reveal-delay-1">
-        <p className="eyebrow">AI Content Verification Platform</p>
-        <h1>VeriLens</h1>
-        <p>
-          Verify text and image submissions with a focused workspace for analysis,
-          history, and usage visibility.
-        </p>
-        <div className="button-row">
-          <Link className="button" to="/register">Get Started</Link>
-          <Link className="button button-secondary" to="/login">Sign In</Link>
+    <>
+      <LandingHero />
+      <section className="page-section landing-overview">
+        <div className="container">
+          <div className="section-intro">
+            <p className="eyebrow">Why VeriLens</p>
+            <h2>Verify every image and text submission with confidence.</h2>
+            <p>
+              VeriLens blends fast detection, secure history, and clear reporting so
+              your team can identify AI-generated content without friction.
+            </p>
+          </div>
+
+          <div className="feature-grid">
+            <article className="feature-card">
+              <strong>Image and text checks</strong>
+              <p>Quickly verify visuals and writing in the same workflow.</p>
+            </article>
+            <article className="feature-card">
+              <strong>Audit-ready history</strong>
+              <p>Save every result and keep your verification record accessible.</p>
+            </article>
+            <article className="feature-card">
+              <strong>Secure access</strong>
+              <p>Use account-based authentication to protect your workspace.</p>
+            </article>
+          </div>
+
+          <div className="cta-bar">
+            <p>Explore a cleaner verification experience designed for teams and educators.</p>
+            <div className="button-row">
+              <Link className="button" to="/register">Start free</Link>
+              <Link className="button button-secondary" to="/features">View features</Link>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="landing-panel fade-in reveal-delay-2" aria-hidden="true">
-        <div className="scan-line" />
-        <div className="signal-card signal-card-top">Image: AI Generated</div>
-        <div className="signal-card signal-card-bottom">Text: Human Written</div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
