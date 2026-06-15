@@ -26,10 +26,13 @@ env/
 --------------# Frontend Dependencies #--------------
 
 node_modules/
+Frontend/node_modules/
 
 --------------# Frontend Build Output #--------------
 
 dist/
+Frontend/dist/
+Frontend/.vite/
 
 --------------# Environment Variables #--------------
 
@@ -59,3 +62,7 @@ outputs/
 
 Thumbs.db
 .DS_Store
+
+--------------# Miscellaneous #--------------
+
+.md
