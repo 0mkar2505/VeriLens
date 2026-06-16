@@ -77,6 +77,29 @@ export default function AboutPage() {
         </div>
       </div>
 
+      <section className="image-story-section image-story-section-reverse">
+        <div className="image-story-copy">
+          <p className="eyebrow">Built for trust</p>
+          <h2>Verification should feel calm, visual, and explainable.</h2>
+          <p>
+            VeriLens keeps review activity clear for educators, teams, and
+            organizations that need confidence before making decisions.
+          </p>
+        </div>
+        <div className="image-story-grid">
+          <img
+            alt="Educator reviewing digital work"
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+          />
+          <img
+            alt="Close-up of a person working through online review notes"
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+          />
+        </div>
+      </section>
+
       <div className="faq-section">
         <div className="section-intro">
           <p className="eyebrow">FAQ</p>

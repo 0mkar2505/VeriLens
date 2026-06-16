@@ -31,6 +31,34 @@ export default function FeaturesPage() {
           <p>Create accounts and return to your workspace with safe authentication.</p>
         </article>
       </div>
+
+      <section className="visual-feature-band">
+        <div>
+          <p className="eyebrow">Detection workflow</p>
+          <h2>Designed for scanning, comparing, and deciding fast.</h2>
+          <p>
+            Image and text signals stay organized so reviewers can move from
+            upload to decision without losing context.
+          </p>
+        </div>
+        <div className="visual-feature-gallery">
+          <img
+            alt="Content moderation workspace on a laptop"
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80"
+          />
+          <img
+            alt="Analytics dashboard displayed on a monitor"
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+          />
+          <img
+            alt="Person reviewing data on a desktop screen"
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+          />
+        </div>
+      </section>
     </section>
   );
 }

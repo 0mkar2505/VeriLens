@@ -31,6 +31,29 @@ export default function LandingPage() {
             </article>
           </div>
 
+          <section className="image-story-section">
+            <div className="image-story-copy">
+              <p className="eyebrow">Review workspace</p>
+              <h2>Bring every verification decision into one clear view.</h2>
+              <p>
+                Add visual context to each review, compare submissions, and keep
+                your team aligned around evidence instead of guesswork.
+              </p>
+            </div>
+            <div className="image-story-grid">
+              <img
+                alt="Team reviewing content on laptops"
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80"
+              />
+              <img
+                alt="Laptop showing digital analysis work"
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+              />
+            </div>
+          </section>
+
           <div className="cta-bar">
             <p>Explore a cleaner verification experience designed for teams and educators.</p>
             <div className="button-row">

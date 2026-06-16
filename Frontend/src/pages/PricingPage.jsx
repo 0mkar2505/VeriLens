@@ -49,7 +49,7 @@ export default function PricingPage() {
 
         <article className="pricing-card">
           <strong>Team</strong>
-          <p>$29 / month</p>
+          <p>₹2,499 / month</p>
           <ul>
             <li>Unlimited image/text checks</li>
             <li>Shared verification history</li>
@@ -73,6 +73,22 @@ export default function PricingPage() {
           </div>
         </article>
       </div>
+
+      <section className="pricing-visual-section">
+        <div>
+          <p className="eyebrow">Scale when ready</p>
+          <h2>Start lean, then expand your verification workflow.</h2>
+          <p>
+            Plans are shaped for Indian teams, classrooms, and review groups
+            that need predictable monthly verification capacity.
+          </p>
+        </div>
+        <img
+          alt="Team planning digital review workflows"
+          loading="lazy"
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1100&q=80"
+        />
+      </section>
 
       <div className="faq-section">
         <div className="section-intro">
