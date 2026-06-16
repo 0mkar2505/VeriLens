@@ -1,0 +1,40 @@
+Files that should be pushed for another device to run the project
+===============================================================
+
+Frontend
+--------
+Frontend/package.json
+Frontend/package-lock.json
+Frontend/tailwind.config.js
+Frontend/tsconfig.json
+Frontend/vite.config.js
+Frontend/index.html
+Frontend/.env.example
+Frontend/src/
+Frontend/app.js
+Frontend/styles.css
+Frontend/eslint.config.js
+
+Backend
+-------
+Backend/
+requirements.txt
+
+Model metadata
+--------------
+Backend/model/class_names.json
+
+Root project files
+------------------
+.gitignore
+README.txt
+package.json
+package-lock.json
+
+Do not push, but keep available separately
+------------------------------------------
+Backend/.env
+Backend/model/verilens_model.pth
+Dataset/
+Raw/
+Any real credentials, API keys, database URIs, or production secrets

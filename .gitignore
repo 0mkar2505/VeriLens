@@ -17,6 +17,14 @@ __pycache__/
 *.pyo
 *.pyd
 
+--------------# Python Tooling #--------------
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
 --------------# Virtual Environments #--------------
 
 .venv/
@@ -33,11 +41,19 @@ Frontend/node_modules/
 dist/
 Frontend/dist/
 Frontend/.vite/
+Frontend/coverage/
+coverage/
 
 --------------# Environment Variables #--------------
 
 .env
-.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+!Frontend/.env.example
+!Backend/.env.example
 
 --------------# IDE Files #--------------
 
@@ -52,6 +68,12 @@ Frontend/.vite/
 
 *.log
 
+--------------# Local Databases #--------------
+
+*.db
+*.sqlite
+*.sqlite3
+
 --------------# Training Outputs #--------------
 
 runs/
@@ -65,4 +87,5 @@ Thumbs.db
 
 --------------# Miscellaneous #--------------
 
-.md
+.vercel/
+.netlify/

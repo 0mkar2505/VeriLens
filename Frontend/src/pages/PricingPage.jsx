@@ -1,3 +1,26 @@
+import { FaqPro } from "../components/ui/faq-pro";
+
+const pricingFaqItems = [
+  {
+    id: "free-plan",
+    question: "Can I start with the free plan?",
+    answer:
+      "Yes. The Starter plan is meant for individual reviewers who want to try image checks, text analysis, and history before scaling."
+  },
+  {
+    id: "team-plan",
+    question: "When should I choose Team?",
+    answer:
+      "Choose Team when a classroom, review group, or small organization needs higher capacity and shared verification history."
+  },
+  {
+    id: "enterprise",
+    question: "What does Enterprise include?",
+    answer:
+      "Enterprise is intended for larger organizations that need onboarding support, advanced reporting, and audit-focused workflows."
+  }
+];
+
 export default function PricingPage() {
   return (
     <section className="page-section page-pricing">
@@ -49,6 +72,14 @@ export default function PricingPage() {
             <span>Scale verification across organizations</span>
           </div>
         </article>
+      </div>
+
+      <div className="faq-section">
+        <div className="section-intro">
+          <p className="eyebrow">FAQ</p>
+          <h2>Plan questions, answered clearly.</h2>
+        </div>
+        <FaqPro defaultOpenFirst items={pricingFaqItems} />
       </div>
     </section>
   );

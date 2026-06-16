@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function PageTransition({ children }) {
@@ -14,9 +14,9 @@ export default function PageTransition({ children }) {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsVisible(false);
-    const timeout = window.setTimeout(() => setIsVisible(true), 30);
+    const timeout = window.setTimeout(() => setIsVisible(true), 90);
 
     return () => window.clearTimeout(timeout);
   }, [location.pathname]);

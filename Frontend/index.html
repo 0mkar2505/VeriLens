@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VeriLens</title>
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("verilens-theme");
+          var theme = savedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.classList.add(theme === "dark" ? "theme-dark" : "theme-light");
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch (_) {
+          document.documentElement.classList.add("theme-light");
+        }
+      })();
+    </script>
 </head>
 <body>
     <div id="root"></div>

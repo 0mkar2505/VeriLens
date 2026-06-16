@@ -1,3 +1,26 @@
+import { FaqPro } from "../components/ui/faq-pro";
+
+const aboutFaqItems = [
+  {
+    id: "what-verilens-checks",
+    question: "What can VeriLens verify?",
+    answer:
+      "VeriLens supports image authenticity checks and text analysis in one workspace, with results saved for future review."
+  },
+  {
+    id: "how-history-works",
+    question: "How does verification history help teams?",
+    answer:
+      "Each completed analysis becomes part of an audit trail, making it easier to revisit decisions and compare past submissions."
+  },
+  {
+    id: "privacy-focus",
+    question: "How is privacy handled?",
+    answer:
+      "The product is designed around focused verification workflows and avoids collecting unnecessary user data."
+  }
+];
+
 export default function AboutPage() {
   return (
     <section className="page-section page-about">
@@ -52,6 +75,14 @@ export default function AboutPage() {
             your review process stays auditable and accountable.
           </p>
         </div>
+      </div>
+
+      <div className="faq-section">
+        <div className="section-intro">
+          <p className="eyebrow">FAQ</p>
+          <h2>Common verification questions.</h2>
+        </div>
+        <FaqPro defaultOpenFirst items={aboutFaqItems} />
       </div>
     </section>
   );
