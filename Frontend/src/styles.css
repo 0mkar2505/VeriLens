@@ -39,21 +39,19 @@ html, body {
 /* Auth grid for login/register pages */
 /* Auth grid for login/register pages */
 .auth-grid {
-/* Prevent horizontal scrolling site-wide */
-html, body {
+  display: grid;
+  /* 30% form, 70% image by default (login) */
+  grid-template-columns: minmax(360px, 30%) minmax(0, 70%);
+  gap: 32px;
+  align-items: stretch;
+  min-height: 100vh;
+  padding: 32px 48px;
   overflow-x: hidden;
 }
-  display: grid;
-  grid-template-columns: minmax(360px, 520px) 1fr;
-  gap: 36px;
-  align-items: center;
-  min-height: calc(100vh - 140px);
-  min-height: calc(100vh - 0px);
-  height: 100vh;
-  padding: 48px 64px;
 
 .auth-grid--reverse {
-  grid-template-columns: 1fr minmax(360px, 520px);
+  /* 70% image on left, 30% form on right (signup) */
+  grid-template-columns: minmax(0, 70%) minmax(360px, 30%);
 }
 
 .auth-grid .auth-card {
@@ -76,6 +74,23 @@ html, body {
   background-size: cover;
   background-position: center;
   filter: saturate(1.05) contrast(0.95) brightness(0.85);
+}
+
+/* Ensure background covers entire visual area without overflowing the card */
+.auth-visual-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Prevent extra scrollbars by constraining box sizing and overflow */
+*, *::before, *::after { box-sizing: border-box; }
+
+.auth-card { max-width: 520px; }
+
+/* Constrain grid padding on small screens to avoid overflow */
+@media (max-width: 980px) {
+  .auth-grid { padding: 28px; }
 }
 
 .auth-testimonials {
@@ -142,6 +157,7 @@ html, body {
   }
 }
 
+:root {
   --verilens-ink-950: #07111f;
   --verilens-ink-900: #0b1220;
   --verilens-ink-800: #111827;
@@ -199,6 +215,8 @@ html, body {
   --visual-panel-bg:
     linear-gradient(135deg, rgba(6, 182, 212, 0.24), transparent 40%),
     linear-gradient(160deg, #08111f, #13253a 58%, #07111f);
+  --auth-card-bg: var(--surface);
+  --auth-card-fg: var(--ink);
   --signal-card-bg: rgba(255, 255, 255, 0.94);
   --signal-card-fg: var(--verilens-ink-900);
   --scan-line-color: rgba(255, 255, 255, 0.3);
@@ -642,6 +660,14 @@ svg {
   min-height: 100vh;
   margin: 0 auto;
   padding: 8px 0; /* reduce top gap so content sits closer to header */
+}
+
+.auth-shell--full {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* When inside the public auth shell reduce the page-section top padding
@@ -1255,6 +1281,8 @@ svg {
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
+.auth-card { background: var(--auth-card-bg); color: var(--auth-card-fg); }
+
 .auth-card:hover {
   transform: translateY(-2px);
 }
@@ -1843,6 +1871,8 @@ a:focus-visible {
 
   .auth-card {
     margin-top: 36px;
+    background: inherit;
+    color: inherit;
   }
 
   .page-header h1,

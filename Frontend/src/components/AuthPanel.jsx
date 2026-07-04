@@ -6,8 +6,10 @@ export default function AuthPanel({ title, subtitle, children, ctaLink, imageUrl
     return () => clearTimeout(t);
   }, []);
 
+  const gridClass = position === "left" ? "auth-grid auth-panel-scale auth-grid--reverse auth-grid--register" : "auth-grid auth-panel-scale auth-grid--login";
+
   return (
-    <div className={`auth-grid auth-panel-scale ${position === "left" ? "auth-grid--reverse" : ""}`}>
+    <div className={gridClass}>
       {position === "left" && (
         <div className="auth-visual" aria-hidden="true">
           <div
@@ -30,7 +32,7 @@ export default function AuthPanel({ title, subtitle, children, ctaLink, imageUrl
         </div>
       )}
 
-      <section className="auth-card auth-panel fade-in reveal-delay-1">
+      <section className="auth-card auth-panel fade-in reveal-delay-1" style={{ zIndex: 3 }}>
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
         {children}
