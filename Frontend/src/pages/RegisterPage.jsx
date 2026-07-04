@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage.jsx";
 import useAuth from "../hooks/useAuth.js";
 import AuthPanel from "../components/AuthPanel.jsx";
+import loginLight from "../assets/images/Veri Lens Login Light.png";
+import loginDark from "../assets/images/Veri Lens Login Dark.png";
 
 export default function RegisterPage() {
   const { authError, isAuthLoading, register } = useAuth();
@@ -30,7 +32,13 @@ export default function RegisterPage() {
   }
 
   return (
-    <AuthPanel title="Create account" subtitle="Start building a private verification history." imageUrl="https://images.unsplash.com/photo-1526401281623-6b01a8b4b3b6?auto=format&fit=crop&w=1600&q=80" position="left">
+    <AuthPanel
+      title="Create account"
+      subtitle="Start building a private verification history."
+      imageUrlLight={loginLight}
+      imageUrlDark={loginDark}
+      position="left"
+    >
       <ErrorMessage message={error || authError} />
       <form className="form-stack" onSubmit={handleSubmit}>
         <label>
@@ -39,6 +47,7 @@ export default function RegisterPage() {
             autoComplete="email"
             required
             type="email"
+            placeholder="you@example.com"
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
           />
@@ -50,13 +59,15 @@ export default function RegisterPage() {
             minLength={8}
             required
             type="password"
+            placeholder="Create a strong password"
             value={form.password}
             onChange={(event) => setForm({ ...form, password: event.target.value })}
           />
         </label>
         <div className="auth-row auth-row--actions">
           <label className="checkbox-inline">
-            <input type="checkbox" /> Keep me signed in
+            <input type="checkbox" />
+            <span>Keep me signed in</span>
           </label>
         </div>
         <button className="button" disabled={isAuthLoading} type="submit">
@@ -65,7 +76,7 @@ export default function RegisterPage() {
 
         <div className="auth-divider">Or continue with</div>
         <button type="button" className="button button-ghost auth-social">
-          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" style={{width:18,height:18,marginRight:8}} /> Continue with Google
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" style={{ width: 18, height: 18, marginRight: 8 }} /> Continue with Google
         </button>
       </form>
       <p className="form-link">

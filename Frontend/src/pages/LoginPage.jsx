@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage.jsx";
 import useAuth from "../hooks/useAuth.js";
 import AuthPanel from "../components/AuthPanel.jsx";
+import loginLight from "../assets/images/Veri Lens Login Light.png";
+import loginDark from "../assets/images/Veri Lens Login Dark.png";
 
 export default function LoginPage() {
   const { authError, isAuthLoading, login } = useAuth();
@@ -32,7 +34,12 @@ export default function LoginPage() {
   }
 
   return (
-    <AuthPanel title="Welcome" subtitle="Access your account and continue your journey with us" imageUrl="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80">
+    <AuthPanel
+      title="Welcome back"
+      subtitle="Access your account and continue your verification workflow."
+      imageUrlLight={loginLight}
+      imageUrlDark={loginDark}
+    >
       <ErrorMessage message={error || routeError || authError} />
       <form className="form-stack" onSubmit={handleSubmit}>
         <label>
@@ -41,6 +48,7 @@ export default function LoginPage() {
             autoComplete="email"
             required
             type="email"
+            placeholder="you@example.com"
             value={form.email}
             onChange={(event) => setForm({ ...form, email: event.target.value })}
           />
@@ -51,13 +59,15 @@ export default function LoginPage() {
             autoComplete="current-password"
             required
             type="password"
+            placeholder="Enter your password"
             value={form.password}
             onChange={(event) => setForm({ ...form, password: event.target.value })}
           />
         </label>
         <div className="auth-row auth-row--actions">
           <label className="checkbox-inline">
-            <input type="checkbox" /> Keep me signed in
+            <input type="checkbox" />
+            <span>Keep me signed in</span>
           </label>
           <a className="link-muted" href="#">Reset password</a>
         </div>
@@ -67,7 +77,7 @@ export default function LoginPage() {
 
         <div className="auth-divider">Or continue with</div>
         <button type="button" className="button button-ghost auth-social">
-          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" style={{width:18,height:18,marginRight:8}} /> Continue with Google
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" style={{ width: 18, height: 18, marginRight: 8 }} /> Continue with Google
         </button>
       </form>
       <p className="form-link">
