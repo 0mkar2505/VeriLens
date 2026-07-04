@@ -34,7 +34,12 @@
 }
 /* Prevent horizontal scrolling site-wide */
 html, body {
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
+}
+#root {
+  min-height: 100%;
 }
 /* Auth grid for login/register pages */
 /* Auth grid for login/register pages */
@@ -2082,6 +2087,27 @@ a:focus-visible {
   font-weight: 820;
 }
 
+.console-topbar,
+.console-footer,
+.scan-window > span,
+.floating-signal span {
+  color: #f8fafc;
+}
+
+.theme-dark .console-topbar,
+.theme-dark .console-footer,
+.theme-dark .scan-window > span,
+.dark-mode .console-topbar,
+.dark-mode .console-footer,
+.dark-mode .scan-window > span {
+  color: #06111f;
+}
+
+.theme-dark .floating-signal span,
+.dark-mode .floating-signal span {
+  color: #ffffff;
+}
+
 .console-topbar {
   margin-bottom: 14px;
 }
@@ -2179,7 +2205,7 @@ a:focus-visible {
 
 .floating-signal span {
   display: block;
-  color: var(--muted-soft);
+  color: inherit;
   font-size: 0.78rem;
   font-weight: 750;
 }
