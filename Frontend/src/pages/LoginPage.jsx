@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import ErrorMessage from "../components/ErrorMessage.jsx";
 import useAuth from "../hooks/useAuth.js";
+import AuthPanel from "../components/AuthPanel.jsx";
 
 export default function LoginPage() {
   const { authError, isAuthLoading, login } = useAuth();
@@ -31,9 +32,7 @@ export default function LoginPage() {
   }
 
   return (
-    <section className="auth-card fade-in reveal-delay-1">
-      <h1>Welcome back</h1>
-      <p>Sign in to continue verification work.</p>
+    <AuthPanel title="Welcome" subtitle="Access your account and continue your journey with us" imageUrl="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80">
       <ErrorMessage message={error || routeError || authError} />
       <form className="form-stack" onSubmit={handleSubmit}>
         <label>
@@ -56,13 +55,24 @@ export default function LoginPage() {
             onChange={(event) => setForm({ ...form, password: event.target.value })}
           />
         </label>
+        <div className="auth-row auth-row--actions">
+          <label className="checkbox-inline">
+            <input type="checkbox" /> Keep me signed in
+          </label>
+          <a className="link-muted" href="#">Reset password</a>
+        </div>
         <button className="button" disabled={isAuthLoading} type="submit">
           {isAuthLoading ? "Signing In" : "Sign In"}
+        </button>
+
+        <div className="auth-divider">Or continue with</div>
+        <button type="button" className="button button-ghost auth-social">
+          <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" style={{width:18,height:18,marginRight:8}} /> Continue with Google
         </button>
       </form>
       <p className="form-link">
         New to VeriLens? <Link to="/register">Create an account</Link>
       </p>
-    </section>
+    </AuthPanel>
   );
 }
