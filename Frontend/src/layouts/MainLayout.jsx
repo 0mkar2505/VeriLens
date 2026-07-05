@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { FileImage, FileText, History, LayoutDashboard, LogOut, PanelLeftClose, PanelLeftOpen, ScanEye } from "lucide-react";
+import { FileImage, FileText, History, LayoutDashboard, LogOut, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 import useAuth from "../hooks/useAuth.js";
+import logoUrl from "../assets/images/VeriLens-Logo.svg";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -26,7 +27,7 @@ export default function MainLayout() {
       <aside className="sidebar">
         <div className="sidebar-topbar">
           <NavLink className="sidebar-brand-lockup" to="/dashboard" aria-label="VeriLens dashboard">
-            <span className="sidebar-brand-mark"><ScanEye size={22} aria-hidden="true" /></span>
+            <span className="sidebar-brand-mark"><img className="brand-logo" src={logoUrl} alt="" /></span>
             <span className="sidebar-brand-copy">
               <span className="brand brand-sidebar">VeriLens</span>
               <span className="sidebar-caption">AI Content Verification</span>

@@ -4623,3 +4623,505 @@ a:focus-visible {
     font-size: 0.82rem;
   }
 }
+/* Auth final viewport/theme fixes */
+html:has(.auth-grid),
+body:has(.auth-grid),
+#root:has(.auth-grid) {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.auth-shell--full,
+.auth-shell--full::before,
+.auth-shell--full::after,
+.page-transition-stage:has(.auth-grid),
+.page-wrapper:has(.auth-grid),
+.auth-grid,
+.auth-grid::before,
+.auth-grid::after {
+  animation: none !important;
+}
+
+.auth-shell--full {
+  position: relative;
+  isolation: isolate;
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.auth-shell--full::before,
+.auth-shell--full::after {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none;
+}
+
+.auth-shell--full::before {
+  z-index: -2;
+  background:
+    linear-gradient(rgba(6, 182, 212, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 0% 16%, rgba(6, 182, 212, 0.24), transparent 30rem),
+    #020617 !important;
+  background-attachment: fixed, fixed, fixed, fixed;
+  background-position: 0 0, 0 0, center, center !important;
+  background-size: 64px 64px, 64px 64px, auto, auto !important;
+}
+
+.auth-shell--full::after {
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.08), rgba(2, 6, 23, 0.24)) !important;
+}
+
+.theme-light .auth-shell--full::before,
+.light-mode .auth-shell--full::before {
+  background:
+    linear-gradient(rgba(8, 145, 178, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 145, 178, 0.13) 1px, transparent 1px),
+    radial-gradient(circle at 0% 16%, rgba(6, 182, 212, 0.18), transparent 30rem),
+    #eef7fb !important;
+  background-position: 0 0, 0 0, center, center !important;
+  background-size: 64px 64px, 64px 64px, auto, auto !important;
+}
+
+.theme-light .auth-shell--full::after,
+.light-mode .auth-shell--full::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(226, 232, 240, 0.18)) !important;
+}
+
+.page-transition-stage:has(.auth-grid),
+.page-wrapper:has(.auth-grid) {
+  width: 100vw !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+.auth-grid,
+.auth-grid--reverse {
+  width: min(1800px, calc(100vw - 48px)) !important;
+  height: calc(100vh - 48px) !important;
+  min-height: 0 !important;
+  max-height: calc(100vh - 48px) !important;
+  margin: 24px auto !important;
+  overflow: hidden !important;
+}
+
+.auth-card,
+.auth-grid .auth-card {
+  overflow: hidden !important;
+  background: rgba(2, 6, 23, 0.9) !important;
+  border-color: rgba(148, 163, 184, 0.16) !important;
+  color: #ffffff !important;
+}
+
+.auth-card h1,
+.auth-card label:not(.checkbox-inline),
+.checkbox-inline,
+.auth-row .link-muted {
+  color: #ffffff !important;
+}
+
+.auth-card .auth-copy,
+.auth-card p.auth-copy,
+.form-link,
+.auth-card .form-link,
+.auth-divider {
+  color: #94a3b8 !important;
+}
+
+.auth-card input:not([type="checkbox"]),
+.button-ghost.auth-social {
+  background: rgba(15, 23, 42, 0.82) !important;
+  border-color: rgba(148, 163, 184, 0.22) !important;
+  color: #ffffff !important;
+}
+
+.theme-light .auth-card,
+.light-mode .auth-card,
+.theme-light .auth-grid .auth-card,
+.light-mode .auth-grid .auth-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(8, 145, 178, 0.18) !important;
+  color: #07111f !important;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12) !important;
+}
+
+.theme-light .auth-card h1,
+.light-mode .auth-card h1,
+.theme-light .auth-card label:not(.checkbox-inline),
+.light-mode .auth-card label:not(.checkbox-inline),
+.theme-light .checkbox-inline,
+.light-mode .checkbox-inline,
+.theme-light .auth-row .link-muted,
+.light-mode .auth-row .link-muted {
+  color: #07111f !important;
+}
+
+.theme-light .auth-card .auth-copy,
+.light-mode .auth-card .auth-copy,
+.theme-light .auth-card p.auth-copy,
+.light-mode .auth-card p.auth-copy,
+.theme-light .form-link,
+.light-mode .form-link,
+.theme-light .auth-card .form-link,
+.light-mode .auth-card .form-link,
+.theme-light .auth-divider,
+.light-mode .auth-divider {
+  color: #64748b !important;
+}
+
+.theme-light .auth-card input:not([type="checkbox"]),
+.light-mode .auth-card input:not([type="checkbox"]),
+.theme-light .button-ghost.auth-social,
+.light-mode .button-ghost.auth-social {
+  background: rgba(248, 250, 252, 0.92) !important;
+  border-color: rgba(8, 145, 178, 0.2) !important;
+  color: #07111f !important;
+}
+
+.theme-light .auth-card input:not([type="checkbox"])::placeholder,
+.light-mode .auth-card input:not([type="checkbox"])::placeholder {
+  color: #64748b !important;
+}
+
+.theme-light .auth-grid .auth-card .button:not(.button-ghost),
+.light-mode .auth-grid .auth-card .button:not(.button-ghost),
+.theme-light .auth-card .button:not(.button-ghost),
+.light-mode .auth-card .button:not(.button-ghost) {
+  background: #07111f !important;
+  color: #ffffff !important;
+}
+
+.theme-light .auth-visual,
+.light-mode .auth-visual {
+  border-color: rgba(8, 145, 178, 0.16) !important;
+  background: #e2e8f0 !important;
+}
+
+@media (max-width: 980px) {
+  html:has(.auth-grid),
+  body:has(.auth-grid),
+  #root:has(.auth-grid),
+  .auth-shell--full,
+  .page-transition-stage:has(.auth-grid),
+  .page-wrapper:has(.auth-grid) {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .auth-grid,
+  .auth-grid--reverse {
+    width: calc(100vw - 28px) !important;
+    height: calc(100vh - 28px) !important;
+    max-height: calc(100vh - 28px) !important;
+    margin: 14px auto !important;
+    grid-template-rows: minmax(0, 1fr) minmax(180px, 34vh);
+    overflow: hidden !important;
+  }
+
+  .auth-card,
+  .auth-grid .auth-card {
+    min-height: 0 !important;
+    height: 100% !important;
+    padding: 22px !important;
+  }
+
+  .auth-visual {
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .form-stack {
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+}
+/* Auth grid animation: animate in place, no directional scrolling */
+.auth-shell--full::before {
+  animation: auth-grid-pulse 9s ease-in-out infinite !important;
+  background-position: 0 0, 0 0, center, center !important;
+}
+
+.auth-shell--full,
+.auth-shell--full::after,
+.page-transition-stage:has(.auth-grid),
+.page-wrapper:has(.auth-grid),
+.auth-grid {
+  animation: none !important;
+}
+
+@keyframes auth-grid-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.08);
+  }
+}
+/* Auth grid visible loop animation without page drift */
+.auth-shell--full::before {
+  animation: auth-grid-loop 12s linear infinite !important;
+  background-size: 64px 64px, 64px 64px, auto, auto !important;
+}
+
+@keyframes auth-grid-loop {
+  0% {
+    background-position: 0 0, 0 0, center, center;
+  }
+  100% {
+    background-position: 64px 64px, 64px 64px, center, center;
+  }
+}
+/* Auth grid real motion + home link */
+.auth-shell--full::before {
+  animation-name: auth-grid-real-motion !important;
+  animation-duration: 10s !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+  background-size: 64px 64px, 64px 64px, auto, auto !important;
+  will-change: background-position !important;
+}
+
+.auth-back-link {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  padding: 0 13px;
+  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.52);
+  font-size: 0.82rem;
+  font-weight: 760;
+  line-height: 1;
+}
+
+.auth-back-link:hover,
+.auth-back-link:focus-visible {
+  border-color: rgba(6, 182, 212, 0.62);
+  color: #ffffff;
+  outline: none;
+}
+
+.theme-light .auth-back-link,
+.light-mode .auth-back-link {
+  color: #475569;
+  background: rgba(248, 250, 252, 0.78);
+}
+
+.theme-light .auth-back-link:hover,
+.theme-light .auth-back-link:focus-visible,
+.light-mode .auth-back-link:hover,
+.light-mode .auth-back-link:focus-visible {
+  color: #07111f;
+}
+
+@keyframes auth-grid-real-motion {
+  from {
+    background-position: 0 0, 0 0, center, center;
+  }
+  to {
+    background-position: 64px 0, 0 64px, center, center;
+  }
+}
+/* Final auth grid animation override */
+.auth-shell--full::before {
+  animation: auth-grid-real-motion 10s linear infinite !important;
+  background-size: 64px 64px, 64px 64px, auto, auto !important;
+  will-change: background-position !important;
+}
+/* Seamless moving grid layer for landing + auth pages */
+.auth-shell::before,
+.auth-shell--full::before {
+  inset: -64px !important;
+  width: auto !important;
+  height: auto !important;
+  background-size: 64px 64px, 64px 64px, auto, auto, auto !important;
+  background-position: 0 0, 0 0, center top, center top, 0 0 !important;
+  animation: seamless-grid-drift 14s linear infinite !important;
+  will-change: transform !important;
+  pointer-events: none !important;
+}
+
+.auth-shell--full,
+.auth-shell,
+.auth-grid,
+.auth-card,
+.auth-visual {
+  transform: none;
+}
+
+@keyframes seamless-grid-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(64px, 64px, 0);
+  }
+}
+/* Keep public-page grid animated without creating extra scroll area */
+.auth-shell:not(.auth-shell--full)::before {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  transform: none !important;
+  animation: public-grid-position-drift 14s linear infinite !important;
+  background-position: 0 0, 0 0, center top, center top, 0 0 !important;
+  background-size: 56px 56px, 56px 56px, auto, auto, auto !important;
+  will-change: background-position !important;
+}
+
+.auth-shell:not(.auth-shell--full) {
+  overflow-x: hidden !important;
+}
+
+@keyframes public-grid-position-drift {
+  from {
+    background-position: 0 0, 0 0, center top, center top, 0 0;
+  }
+  to {
+    background-position: 56px 56px, 56px 56px, center top, center top, 0 0;
+  }
+}
+/* Public pages: full-page animated grid without layout growth */
+body:has(.auth-shell:not(.auth-shell--full)) {
+  background:
+    linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 8% 12%, rgba(6, 182, 212, 0.18), transparent 28rem),
+    radial-gradient(circle at 92% 22%, rgba(245, 158, 11, 0.13), transparent 30rem),
+    var(--body-background) !important;
+  background-size: 56px 56px, 56px 56px, auto, auto, auto !important;
+  background-position: 0 0, 0 0, center top, center top, 0 0;
+  animation: public-grid-position-drift 14s linear infinite !important;
+}
+
+.auth-shell:not(.auth-shell--full)::before {
+  display: none !important;
+}
+
+.auth-shell:not(.auth-shell--full)::after {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+}
+/* Restore public page grid animation without layout growth */
+.auth-shell:not(.auth-shell--full) {
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden !important;
+}
+
+.auth-shell:not(.auth-shell--full)::before {
+  display: block !important;
+  position: fixed !important;
+  inset: -56px !important;
+  z-index: -2 !important;
+  width: auto !important;
+  height: auto !important;
+  pointer-events: none !important;
+  content: "" !important;
+  background:
+    linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 8% 12%, rgba(6, 182, 212, 0.18), transparent 28rem),
+    radial-gradient(circle at 92% 22%, rgba(245, 158, 11, 0.13), transparent 30rem),
+    var(--body-background) !important;
+  background-size: 56px 56px, 56px 56px, auto, auto, auto !important;
+  background-position: 0 0, 0 0, center top, center top, 0 0 !important;
+  animation: public-grid-layer-drift 14s linear infinite !important;
+  will-change: transform !important;
+}
+
+body:has(.auth-shell:not(.auth-shell--full)) {
+  background: var(--body-background) !important;
+  animation: none !important;
+}
+
+@keyframes public-grid-layer-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(56px, 56px, 0);
+  }
+}
+/* VeriLens logo placement */
+.brand-logo-link,
+.marketing-footer-logo,
+.sidebar-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.sidebar-brand-mark .brand-logo,
+.marketing-footer-logo .brand-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.console-logo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.console-topbar > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Larger VeriLens logo sizing */
+.brand-logo {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+.brand-logo-link .brand-logo {
+  width: 46px !important;
+  height: 46px !important;
+  margin-left: -8px;
+}
+
+.sidebar-brand-mark .brand-logo,
+.marketing-footer-logo .brand-logo {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.console-logo {
+  width: 24px !important;
+  height: 24px !important;
+}

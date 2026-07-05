@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import MarketingFooter from "../components/MarketingFooter.jsx";
 import PublicNav from "../components/PublicNav.jsx";
+import logoUrl from "../assets/images/VeriLens-Logo.svg";
 
 const marketingRoutes = new Set(["/", "/about", "/features", "/pricing"]);
 const authRoutes = new Set(["/login", "/register"]);
@@ -29,8 +30,9 @@ export default function AuthLayout() {
       {!authRoutes.has(pathname) && (
         <header className={`auth-header auth-header--compact`}>
           <div className="auth-header-inner container">
-            <Link className="brand" to="/">
-              VeriLens
+            <Link className="brand brand-logo-link" to="/">
+              <img className="brand-logo" src={logoUrl} alt="" />
+              <span>VeriLens</span>
             </Link>
             <PublicNav />
           </div>

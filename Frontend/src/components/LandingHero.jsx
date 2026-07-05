@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Button } from "./ui/button";
+import logoUrl from "../assets/images/VeriLens-Logo.svg";
 
 export default function LandingHero() {
   return (
@@ -53,7 +54,7 @@ export default function LandingHero() {
           <div className="verification-console">
             <div className="console-topbar">
               <div>
-                <span className="console-dot" />
+                <img className="console-logo" src={logoUrl} alt="" />
                 Live verification
               </div>
               <span>00:08</span>

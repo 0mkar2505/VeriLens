@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AuthPanel({ title, subtitle, children, ctaLink, imageUrl, imageUrlLight, imageUrlDark, position = "right" }) {
   const [theme, setTheme] = useState("light");
@@ -35,6 +36,7 @@ export default function AuthPanel({ title, subtitle, children, ctaLink, imageUrl
       {isImageFirst && <AuthVisual imageSource={imageSource} />}
 
       <section className="auth-card auth-panel fade-in reveal-delay-1" style={{ zIndex: 3 }}>
+        <Link className="auth-back-link" to="/">Back to home</Link>
         <h1>{title}</h1>
         {subtitle && <p className="auth-copy">{subtitle}</p>}
         {children}

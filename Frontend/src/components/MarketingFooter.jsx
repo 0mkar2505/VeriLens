@@ -1,5 +1,6 @@
-﻿import { Link } from "react-router-dom";
-import { Mail, ScanEye, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import logoUrl from "../assets/images/VeriLens-Logo.svg";
+import { Mail, Sparkles } from "lucide-react";
 
 function LinkedInIcon({ size = 15, ...props }) {
   return (
@@ -80,7 +81,7 @@ export default function MarketingFooter() {
       <div className="marketing-footer-grid">
         <div className="marketing-footer-brand reveal-delay-1">
           <Link className="marketing-footer-logo" to="/" aria-label="VeriLens home">
-            <span><ScanEye size={22} aria-hidden="true" /></span>
+            <span><img className="brand-logo" src={logoUrl} alt="" /></span>
             VeriLens
           </Link>
           <p>
